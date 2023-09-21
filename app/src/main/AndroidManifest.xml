@@ -13,6 +13,39 @@
         android:theme="@style/Theme.Progmob2023"
         tools:targetApi="31">
         <activity
+            android:name=".SampleCardView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SampleRecyclerView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RecyclerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SampleListView"
+            android:exported="false" />
+        <activity
+            android:name=".SampleList"
+            android:exported="false" />
+        <activity
             android:name=".ProteinTrackerActivity"
             android:exported="false" />
         <activity
@@ -33,14 +66,8 @@
             android:label="Help Activity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="Main Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="Main Activity"/>
     </application>
 
 </manifest>
