@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.nikolaus.progmob2023.adapter.PetaniAdapter
 import com.nikolaus.progmob2023.adapter.PetaniCVAdapter
 import com.nikolaus.progmob2023.model.Petani
 
