@@ -14,13 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Progmob2023"
-        android:usesCleartextTraffic="true"
+        android:usesCleartextTraffic="false"
         tools:targetApi="31">
         <activity
-            android:name=".crud.InsertPetaniActivity"
-            android:exported="false" />
-        <activity
-            android:name=".crud.LoginCRUDActivity"
+            android:name=".UTS.ReadUTSActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +25,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".UTS.InsertUTSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UTS.LoginUTSActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.InsertPetaniActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crud.LoginCRUDActivity"
+            android:exported="true" />
         <activity
             android:name=".crud.ReadPetaniActivity"
             android:exported="false" />

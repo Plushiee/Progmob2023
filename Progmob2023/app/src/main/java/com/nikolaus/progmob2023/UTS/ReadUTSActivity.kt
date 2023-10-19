@@ -1,4 +1,4 @@
-package com.nikolaus.progmob2023.crud
+package com.nikolaus.progmob2023.UTS
 
 import android.content.Context
 import android.content.Intent
@@ -12,43 +12,43 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nikolaus.progmob2023.LoginActivity
 import com.nikolaus.progmob2023.R
-import com.nikolaus.progmob2023.adapter.PetaniAPIAdapter
-import com.nikolaus.progmob2023.model.ResponsePetani
-import com.nikolaus.progmob2023.network.NetworkConfigPetani
+import com.nikolaus.progmob2023.adapter.UTSAPIAdapter
+import com.nikolaus.progmob2023.model.ResponseUTSItem
+import com.nikolaus.progmob2023.network.NetworkConfigUTS
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ReadPetaniActivity : AppCompatActivity() {
+class ReadUTSActivity : AppCompatActivity() {
     val prefs_name = "session_login"
     lateinit var sharedPref : SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_read_petani)
+        setContentView(R.layout.activity_read_uts)
 
-        var rvPetaniAPI: RecyclerView = findViewById(R.id.rvPetaniAPI)
+        var rvUTSAPI: RecyclerView = findViewById(R.id.rvUTSAPI)
         sharedPref = getSharedPreferences(prefs_name, Context.MODE_PRIVATE)
 
-        NetworkConfigPetani().getService().getPetani()
-            ?.enqueue(object : Callback<ResponsePetani> {
+        NetworkConfigUTS().getService().getUTS()
+            .enqueue(object : Callback<List<ResponseUTSItem>> {
                 override fun onFailure(
-                    call: Call<ResponsePetani>, t:
+                    call: Call<List<ResponseUTSItem>>, t:
                     Throwable
                 ) {
                     Toast.makeText(
-                        this@ReadPetaniActivity, t.localizedMessage,
+                        this@ReadUTSActivity, t.localizedMessage,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
 
                 override fun onResponse(
-                    call: Call<ResponsePetani>,
-                    response: Response<ResponsePetani>
+                    call: Call<List<ResponseUTSItem>>,
+                    response: Response<List<ResponseUTSItem>>
                 ) {
-                    val responseData = response.body()?.data
-                    rvPetaniAPI.apply {
-                        layoutManager = LinearLayoutManager(this@ReadPetaniActivity)
-                        adapter = PetaniAPIAdapter(responseData)
+                    val responseUTS = response.body()
+                    rvUTSAPI.apply {
+                        layoutManager = LinearLayoutManager(this@ReadUTSActivity)
+                        adapter = UTSAPIAdapter(responseUTS)
                     }
                 }
             })
@@ -57,18 +57,18 @@ class ReadPetaniActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.btnAddAPI -> {
-                var intent = Intent(this@ReadPetaniActivity, InsertPetaniActivity::class.java)
-                intent.putExtra("judul", "INSERT DATA PETANI")
+                var intent = Intent(this@ReadUTSActivity, InsertUTSActivity::class.java)
+                intent.putExtra("judul", "INSERT DATA UTS")
                 intent.putExtra("baru", true)
                 startActivity(intent)
-                finish()
+//                finish()
             }
             R.id.btnLogoutAPI -> {
                 val editor : SharedPreferences.Editor = sharedPref.edit()
                 editor.clear()
                 editor.apply()
                 finish()
-                var intent = Intent(this@ReadPetaniActivity, LoginActivity::class.java)
+                var intent = Intent(this@ReadUTSActivity, LoginActivity::class.java)
                 startActivity(intent)
             }
         }
