@@ -67,7 +67,7 @@ class UTSAPIAdapter(
 
 //              Delete
                 btnDeleteUTSAPI.setOnClickListener(OnClickListener { View ->
-                    NetworkConfigUTS().getService().deleteUTS(uts?.id).enqueue(object :
+                    NetworkConfigUTS().getService().deleteUTS(uts?.id, "72210456").enqueue(object :
                         Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             if (response.isSuccessful) {

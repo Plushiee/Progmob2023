@@ -113,11 +113,13 @@ class InsertUTSActivity : AppCompatActivity() {
                 } else {
                     //  Update
                     NetworkConfigUTS().getService().updateUTS(
+                        data?.get(0) ,
                         edNamaUTSAPI.text.toString(),
                         edNimUTSAPI.text.toString(),
                         edAlamatUTSAPI.text.toString(),
                         edEmailUTSAPI.text.toString(),
-                        edFotoUTSAPI.text.toString()
+                        edFotoUTSAPI.text.toString(),
+                        "72210456"
                     ).enqueue(object :
                         Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {

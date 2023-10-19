@@ -47,17 +47,23 @@ interface UsersUTS {
         @Field("nim_progmob") nim_progmob: String,
     ): Call <Void>
 
-    @DELETE("api/progmob/mhs/72210456/{id}") //isi
-    fun deleteUTS(@Path("id") id: Int? = null): Call <Void>
+    @FormUrlEncoded
+    @POST("api/progmob/mhs/delete") //isi
+    fun deleteUTS(
+        @Field("id") id: Int? = null,
+        @Field("nim_progmob") nim_progmob: String,
+        ): Call <Void>
 
     @FormUrlEncoded
-    @PUT("api/progmob/mhs/72210456/{id}") //isi
+    @POST("api/progmob/mhs/update") //isi
     fun updateUTS( //ganti
-        @Field("nama") nama: String,
+        @Field("id") id: String?,
         @Field("nim") nim: String,
+        @Field("nama") nama: String,
         @Field("alamat") alamat: String,
-        @Field("email") kabupaten: String,
-        @Field("foto") kecamatan: String
+        @Field("email") email: String,
+        @Field("foto") foto: String,
+        @Field("nim_progmob") nim_progmob: String,
     ): Call <Void>
 }
 
