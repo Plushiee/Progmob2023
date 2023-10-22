@@ -2,6 +2,7 @@ package com.nikolaus.progmob2023.UTS
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -38,6 +39,8 @@ class InsertUTSActivity : AppCompatActivity() {
         judulUTSAPI.text = getIntent().getStringExtra("judul")
 
         if (!baru) {
+            Log.d("UTSAPIAdapter", "uts.id: ${data?.get(0)}, uts.nama: ${data?.get(1)}, uts.alamat: ${data?.get(2)}, uts.email: ${data?.get(3)}, uts.foto: ${data?.get(4)}")
+
             edNamaUTSAPI.setText((data?.get(1) ?: edNamaUTSAPI.text))
             edNimUTSAPI.setText((data?.get(2) ?: edNimUTSAPI.text))
             edAlamatUTSAPI.setText((data?.get(3) ?: edAlamatUTSAPI.text))
@@ -114,8 +117,8 @@ class InsertUTSActivity : AppCompatActivity() {
                     //  Update
                     NetworkConfigUTS().getService().updateUTS(
                         data?.get(0) ,
-                        edNamaUTSAPI.text.toString(),
                         edNimUTSAPI.text.toString(),
+                        edNamaUTSAPI.text.toString(),
                         edAlamatUTSAPI.text.toString(),
                         edEmailUTSAPI.text.toString(),
                         edFotoUTSAPI.text.toString(),

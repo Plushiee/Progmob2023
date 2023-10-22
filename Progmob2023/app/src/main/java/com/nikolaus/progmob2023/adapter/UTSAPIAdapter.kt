@@ -107,7 +107,7 @@ class UTSAPIAdapter(
 //          Edit
                 btnEditUTSAPI.setOnClickListener(OnClickListener { View ->
                     val intent = Intent(context, InsertUTSActivity::class.java)
-                    val data = arrayOf(uts?.id,  uts?.nama, uts?.alamat, uts?.email, uts?.foto)
+                    val data = arrayOf(uts?.id.toString(),  uts?.nama, uts?.nim , uts?.alamat, uts?.email, uts?.foto)
 
                     intent.putExtra("judul", "EDIT DATA UTS")
                     intent.putExtra("baru", false)
