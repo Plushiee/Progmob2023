@@ -1,13 +1,15 @@
+import 'package:progmob_flutter/api.dart';
 import 'package:progmob_flutter/constants.dart';
+import 'package:progmob_flutter/delete_api.dart';
 import 'package:progmob_flutter/details_screen.dart';
 import 'package:progmob_flutter/details_user.dart';
+import 'package:progmob_flutter/post_api.dart';
 import 'package:progmob_flutter/schools.dart';
 import 'package:progmob_flutter/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:progmob_flutter/schools.dart';
-import 'package:sidebarx/sidebarx.dart';
+import 'package:progmob_flutter/update_api.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +24,11 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
       routes: {
         '/detailsuser': (context) => DetailsUser(),
-        '/schools': (context) => Schools()
+        '/schools': (context) => Schools(),
+        '/api': (context) => Api(),
+        '/post-api': (context) => PostApi(),
+        '/update-api': (context) => UpdateApi(),
+        '/delete-api': (context) => DeleteApi(),
       },
     );
   }
@@ -204,6 +210,40 @@ class HomeScreen extends StatelessWidget {
                 // _onItemTapped(1);
                 // Then close the drawer
                 Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('API'),
+              trailing: Icon(Icons.api),
+              subtitle: Text("Get API"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, "/api");
+              },
+            ),
+            ListTile(
+              title: const Text('API'),
+              trailing: Icon(Icons.api),
+              subtitle: Text("Post API"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, "/post-api");
+              },
+            ),ListTile(
+              title: const Text('API'),
+              trailing: Icon(Icons.api),
+              subtitle: Text("Update API"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, "/update-api");
+              },
+            ),ListTile(
+              title: const Text('API'),
+              trailing: Icon(Icons.api),
+              subtitle: Text("Delete API"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, "/delete-api");
               },
             ),
             ListTile(
