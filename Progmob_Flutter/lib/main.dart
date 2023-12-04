@@ -3,6 +3,7 @@ import 'package:progmob_flutter/constants.dart';
 import 'package:progmob_flutter/delete_api.dart';
 import 'package:progmob_flutter/details_screen.dart';
 import 'package:progmob_flutter/details_user.dart';
+import 'package:progmob_flutter/map.dart';
 import 'package:progmob_flutter/post_api.dart';
 import 'package:progmob_flutter/schools.dart';
 import 'package:progmob_flutter/model/category.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/post-api': (context) => PostApi(),
         '/update-api': (context) => UpdateApi(),
         '/delete-api': (context) => DeleteApi(),
+        '/map': (context) => MyMap(),
       },
     );
   }
@@ -244,6 +246,14 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, "/delete-api");
+              },
+            ),ListTile(
+              title: const Text('Map'),
+              trailing: Icon(Icons.map),
+              subtitle: Text("Coba Map"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, "/map");
               },
             ),
             ListTile(
